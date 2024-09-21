@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography, TextField, Button } from "@mui/material";
 import toast from "react-hot-toast";
-import axios from 'axios'
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
   //state
   const [inputs, setInputs] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -26,11 +26,10 @@ const Register = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post("/api/v1/user/register", {
-        username: inputs.username,
+        username: inputs.name,
         email: inputs.email,
         password: inputs.password,
       });
-
       if (data.success) {
         toast.success("User Register Successfully");
         navigate("/login");
@@ -66,7 +65,7 @@ const Register = () => {
             placeholder="name"
             value={inputs.name}
             onChange={handleChange}
-            name="username"
+            name="name"
             margin="normal"
             type={"text"}
             required

@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
   // global state
   const isLogin = useSelector((state) => state.isLogin);
-  console.log(isLogin);
+  // console.log(isLogin);
 
   // local state
   const [value, setvalue] = useState();
